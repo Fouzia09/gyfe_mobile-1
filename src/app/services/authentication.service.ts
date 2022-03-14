@@ -13,6 +13,21 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  public logOn(identifiant: any): any{
+    return this.http.post(API_ROUTE.logon, identifiant);
+  }
+
+  getToken(){
+    return localStorage.getItem(this.tokenName);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  seTtoken(data: Object){
+    //@ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    data.hasOwnProperty('token') ? localStorage.setItem(this.tokenName,data.token) : this.logout();
+  }
+
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(API_ROUTE.users);
   }
@@ -54,20 +69,6 @@ export class AuthenticationService {
     return this.http.post<any>(`${API_ROUTE.users}/forgot-password`, email);
   }
 
-  // GESTION TOKEN
-
-  public logOn(identifiant: any): any{
-    return this.http.post(API_ROUTE.logon, identifiant);
-  }
-
-  getToken(){
-    return localStorage.getItem(this.tokenName);
-  }
-
-  seTtoken(data: any){
-    //@ts-ignore
-    data.hasOwnProperty('token') ? localStorage.setItem(this.tokenName,data.token) : this.logout();
-  }
 
   setInLocalStorage(key: string, value: any): void {
     localStorage.setItem(key, value);

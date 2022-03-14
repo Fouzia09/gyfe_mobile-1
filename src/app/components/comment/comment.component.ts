@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-comment',
@@ -6,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comment.component.scss'],
 })
 export class CommentComponent implements OnInit {
+  @Input() page!: string;
+  pageId!: number;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
-  ngOnInit() {}
-
+  ngOnInit(): void {
+    this.pageId = +this.route.snapshot.url[1].path;
+  }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/use-lifecycle-interface */
 import { Restaurant, RestaurantOUT } from './../../interfaces/restaurant';
 import { Component } from '@angular/core';
 import { RestaurantService } from 'src/app/services/restaurant.service';
@@ -10,7 +11,7 @@ import { UserOUT } from 'src/app/interfaces/user';
 })
 export class RestaurantTabPage {
 
-  listrestaurants!: Restaurant[];
+  listRestaurants!: Restaurant[];
   isLoading = false;
   errorApi = false;
   success = false;
@@ -24,7 +25,6 @@ export class RestaurantTabPage {
     this.getRestaurants();
    }
 
-  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnInit(): void {
   }
 
@@ -39,7 +39,7 @@ export class RestaurantTabPage {
   //  getRestaurants(){
   //     this.restaurantService.getRestaurants().subscribe(
   //       (      data: Restaurant[])=>{
-  //         this.listrestaurants = data;
+  //         this.listRestaurants = data;
   //       }
   //     );
   //   };

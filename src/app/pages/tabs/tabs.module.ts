@@ -8,7 +8,7 @@ import { TabsPageRoutingModule } from './tabs-routing.module';
 import { TabsPage } from './tabs.page';
 import { RoomTabPage } from '../room-tab/room-tab.page';
 import { RestaurantTabPage } from '../restaurant-tab/restaurant-tab.page';
-import { Tab3Page } from '../tab3/tab3.page';
+import { LoginPage } from '../authentication/login/login.page';
 import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
@@ -23,7 +23,7 @@ import { ComponentsModule } from '../../components/components.module';
     TabsPage,
     RoomTabPage,
     RestaurantTabPage,
-    Tab3Page
+    LoginPage
   ]
 })
 export class TabsPageModule {}

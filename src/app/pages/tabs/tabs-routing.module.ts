@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { RoomTabPage } from '../room-tab/room-tab.page';
 import { RestaurantTabPage } from '../restaurant-tab/restaurant-tab.page';
-import { Tab3Page } from '../tab3/tab3.page';
+import { LoginPage } from '../authentication/login/login.page';
 
 const routes: Routes = [
   {
@@ -19,8 +19,8 @@ const routes: Routes = [
         component: RestaurantTabPage
       },
       {
-        path: 'tab3',
-        component: Tab3Page
+        path: 'login',
+        component: LoginPage
       }
     ]
   },

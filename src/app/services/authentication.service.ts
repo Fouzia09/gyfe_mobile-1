@@ -9,7 +9,22 @@ import { User, UserOUT } from '../interfaces/user';
 })
 export class AuthenticationService {
 
+  private tokenName = 'token';
+
   constructor(private http: HttpClient) { }
+
+  public logOn(identifiant:any): any{
+    return this.http.post(API_ROUTE.logon, identifiant);
+  }
+
+  getToken(){
+    return localStorage.getItem(this.tokenName);
+  }
+
+  seTtoken(data: Object){
+    //@ts-ignore
+    data.hasOwnProperty('token') ? localStorage.setItem(this.tokenName,data.token) : this.logout();
+  }
 
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(API_ROUTE.users);

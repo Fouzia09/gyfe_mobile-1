@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
-import { RoomTabPage } from '../room-tab/room-tab.page';
 import { RestaurantTabPage } from '../restaurant-tab/restaurant-tab.page';
 import { LoginPage } from '../authentication/login/login.page';
+import { RoomTabPage } from '../room-tab/room-tab.page';
 
 const routes: Routes = [
   {

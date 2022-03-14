@@ -8,7 +8,7 @@ import { RoomService } from 'src/app/services/room.service';
   templateUrl: 'room-tab.page.html',
   styleUrls: ['room-tab.page.scss']
 })
-  export class RoomAdminListComponent implements OnInit {
+  export class RoomTabPage implements OnInit {
 
     listroom!: Room[];
     isLoading = false;

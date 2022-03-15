@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, } from '@angular/core';
+import { Router } from '@angular/router';
 import { Room, RoomOUT } from 'src/app/interfaces/room';
 import { UserOUT } from 'src/app/interfaces/user';
 import { RoomService } from 'src/app/services/room.service';
@@ -10,38 +11,28 @@ import { RoomService } from 'src/app/services/room.service';
 })
   export class RoomTabPage implements OnInit {
 
-    listroom!: Room[];
-    isLoading = false;
-    errorApi = false;
-    success = false;
-    rooms!: RoomOUT[];
+    @Input() pageId!: number;
+  rooms!: Room[];
+  id!: number;
+  searchedItems!: Room[];
+  // inputName!: string;
+  // inputCity!: string;
+  // inputCountry!: string;
+  nameSearch: string = '';
+  citySearch: string = '';
+  countrySearch: string = '';
+  priceSearch!: number;
 
 
-    constructor(
-      private roomService: RoomService,
-      //private matDialog: MatDialog,
-      ) {
-      this.getRooms();
-     }
+  constructor(private roomService: RoomService, private router: Router) {}
 
-    ngOnInit(): void {
-    }
+  ngOnInit() {
+    this.roomService.getListRoom().subscribe((res: Room[]) => {
+      this.rooms = res;
 
-    getRooms(): void {
-      let userLoggedInfo: UserOUT | string;
-      userLoggedInfo = localStorage.getItem('userLoggedInfo') as string;
-      userLoggedInfo = JSON.parse(userLoggedInfo) as UserOUT;
-      this.rooms = userLoggedInfo.rooms as RoomOUT[];
-    }
+    });
 
-    /* getRooms(){
-      this.roomService.getListRoom().subscribe(
-        (      data: Room[])=>{
-          this.listroom = data;
-        }
-      )
-    }
-   */
+  }
 
 
   }

@@ -18,9 +18,9 @@ import { RoomService } from 'src/app/services/room.service';
   // inputName!: string;
   // inputCity!: string;
   // inputCountry!: string;
-  nameSearch: string = '';
-  citySearch: string = '';
-  countrySearch: string = '';
+  nameSearch = '';
+  citySearch = '';
+  countrySearch = '';
   priceSearch!: number;
 
 

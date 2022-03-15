@@ -16,6 +16,7 @@ export class AddCommentComponent implements OnInit {
   form!: FormGroup;
   pseudo!: string;
   userLoggedInfo!: UserOUT;
+  hasPseudo!: boolean;
 
   constructor(
     private router: Router,
@@ -26,16 +27,24 @@ export class AddCommentComponent implements OnInit {
       this.userLoggedInfo = JSON.parse(userLoggedInfo);
     }
 
+  get pseudoFb(){
+    return this.form.get('pseudoFb');
+  }
+  get content(){
+    return this.form.get('content');
+  }
+
   ngOnInit(): void {
-    this.pseudo = this.userLoggedInfo.username;
-    if (!this.pseudo) { this.pseudo = 'user_' + (Math.random() + 1).toString(36).substring(7); }
+    if (this.userLoggedInfo) { this.pseudo = this.userLoggedInfo.username; };
+    this.hasPseudo = this.pseudo ? true : false;
+    if (!this.hasPseudo) { this.pseudo = 'user_' + (Math.random() + 1).toString(36).substring(7); }
 
     this.initAddCommentForm(this.pseudo);
   }
 
   initAddCommentForm(pseudo: string): void {
     this.form = this.fb.group({
-      pseudo: [pseudo, Validators.required],
+      pseudoFb: [pseudo, Validators.required],
       content: ['', Validators.required],
     });
   }

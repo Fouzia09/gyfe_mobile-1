@@ -7,12 +7,19 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
-  <app-list-comments></app-list-comments>
+  <ion-card *ngFor="let restaurant of listrestaurant">
+    <!-- <img src="../../../assets/uploads/menu-img-02.jpg" alt="Image du plat"> -->
+    <ion-card-header>
+      <ion-card-title>{{ restaurant.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div id="descriptif-room">
+        <p>{{ restaurant.descriptif }}</p>
+        <p>{{ restaurant.city }} {{ restaurant.country }}</p>
+        <ion-button>
+          <ion-icon name="heart"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

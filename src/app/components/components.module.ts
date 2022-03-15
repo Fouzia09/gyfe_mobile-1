@@ -8,6 +8,7 @@ import { AddCommentComponent } from './comment/add-comment/add-comment.component
 import { DetailComponent } from './detail/detail.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { AddFavoriteComponent } from './favorite/add-favorite/add-favorite.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import {
   IonCheckbox,
   IonInput,
@@ -35,6 +36,7 @@ import {
   imports: [
     IonicModule,
     CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
     ExploreContainerComponent,

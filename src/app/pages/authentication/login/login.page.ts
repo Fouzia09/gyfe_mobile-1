@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginPage {
 
-  errorAuthentication: boolean = false;
-  isLoading: boolean = false;
+  errorAuthentication = false;
+  isLoading = false;
 
   //@ts-ignore
   username: FormControl;

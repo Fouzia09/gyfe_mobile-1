@@ -11,38 +11,25 @@ import { UserOUT } from 'src/app/interfaces/user';
 })
 export class RestaurantTabPage {
 
-  listRestaurants!: Restaurant[];
-  isLoading = false;
-  errorApi = false;
-  success = false;
-  restaurants!: RestaurantOUT[];
+   //@ts-ignore
+   listrestaurant: Restaurant[];
 
+   constructor(
+     private restaurantService: RestaurantService
+   ) {
+     this.getRestaurants();
+    }
 
-  constructor(
-    private restaurantService: RestaurantService,
-    //private matDialog: MatDialog,
-    ) {
-    this.getRestaurants();
+   ngOnInit(): void {
    }
 
-  ngOnInit(): void {
-  }
-
-  getRestaurants(): void {
-    let userLoggedInfo: UserOUT | string;
-    userLoggedInfo = localStorage.getItem('userLoggedInfo') as string;
-    userLoggedInfo = JSON.parse(userLoggedInfo) as UserOUT;
-    this.restaurants = userLoggedInfo.restaurants as RestaurantOUT[];
-    console.log(this.restaurants);
-  }
-
-  //  getRestaurants(){
-  //     this.restaurantService.getRestaurants().subscribe(
-  //       (      data: Restaurant[])=>{
-  //         this.listRestaurants = data;
-  //       }
-  //     );
-  //   };
+   getRestaurants(){
+     this.restaurantService.getRestaurants().subscribe(
+       data=>{
+         this.listrestaurant = data;
+       }
+     );
+   }
 
 
 

@@ -1,3 +1,20 @@
-<p>
-  add-comment works!
-</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+  <ion-item lines="full" *ngIf="!hasPseudo">
+    <ion-label position="floating">Pseudo</ion-label>
+    <ion-input type="text" formControlName="pseudoFb" required></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="floating">Ecrire...</ion-label>
+    <ion-textarea type="text" formControlName="content" required></ion-textarea>
+  </ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" [disabled]="!form.valid" expand="block">Envoyer</ion-button>
+    </ion-col>
+  </ion-row>
+  <div [hidden]="pseudoFb.valid || pseudoFb.pristine && content.valid || content.pristine" class="m-t-10">
+    <small *ngIf="pseudoFb.errors?.required || content.errors?.required" class="alert alert-danger">
+      Veuillez renseigner un pseudo et écrire un commentaire
+    </small>
+  </div>
+</form>

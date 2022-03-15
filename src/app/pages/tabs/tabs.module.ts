@@ -2,7 +2,7 @@ import { UserPage } from './../authentication/user/user.page';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TabsPageRoutingModule } from './tabs-routing.module';
 
@@ -17,6 +17,7 @@ import { ComponentsModule } from '../../components/components.module';
     IonicModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     TabsPageRoutingModule,
     ComponentsModule
   ],

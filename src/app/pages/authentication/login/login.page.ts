@@ -32,7 +32,7 @@ export class LoginPage {
     this.loginForm = this.fb.group({
       username: this.username,
       password: this.password
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -42,7 +42,7 @@ export class LoginPage {
     const body = {
       username: this.loginForm.value.username,
       password: this.loginForm.value.password
-    }
+    };
 
     this.isLoading = true;
 

@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Login
@@ -14,4 +14,50 @@
   </ion-header>
 
   <app-explore-container name="Tab 3 page"></app-explore-container>
+</ion-content>
+ -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Connexion
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [hidden]="submitted">
+    <p class="avatar">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <ion-item lines="full">
+          <ion-label position="floating">Username</ion-label>
+          <ion-input type="text" formControlName="username" required></ion-input>
+          <div [hidden]="username.valid || username.pristine" style="margin-top: 8px;">
+            <small *ngIf="username.errors?.required"  class="alert alert-danger">Username is required</small>
+          </div>
+      </ion-item>
+  
+      <ion-item lines="full">
+          <ion-label position="floating">Mot de passe</ion-label>
+          <ion-input type="password" formControlName="password" required></ion-input>
+          <div [hidden]="password.valid || password.pristine" style="margin-top: 8px;">
+            <small *ngIf="password.errors?.required"  class="alert alert-danger">Password is required</small>
+          </div>
+      </ion-item>
+    
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" expand="block" color="primary" [disabled]="!loginForm.valid">Connexion</ion-button>
+          <p><a href="/authentication/forget-password" class="small-text">Forgot Password?</a></p>
+          <p><a href="/tabs/user" class="small-text">S'inscrire</a></p>
+        </ion-col>
+      </ion-row>
+    </form>
+    <!-- <div *ngIf="clickSubmit"> 
+      <span *ngIf="password.status != 'valid' || username.status != 'valid'" [ngClass]="{'bad': 'message.error'}">{{ message }}</span>
+    </div> -->
+  </div>
 </ion-content>

@@ -1,3 +1,4 @@
+import { UserPage } from './../authentication/user/user.page';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
@@ -27,6 +28,10 @@ const routes: Routes = [
         path: 'detail/:key',
         component: DetailRoomComponent
       },
+      {
+        path: 'user',
+        component: UserPage
+      }
     ]
   },
   {

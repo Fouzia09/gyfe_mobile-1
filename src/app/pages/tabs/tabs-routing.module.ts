@@ -4,6 +4,7 @@ import { TabsPage } from './tabs.page';
 import { RestaurantTabPage } from '../restaurant-tab/restaurant-tab.page';
 import { LoginPage } from '../authentication/login/login.page';
 import { RoomTabPage } from '../room-tab/room-tab.page';
+import { DetailRoomComponent } from '../room-tab/detail-room/detail-room.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,11 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginPage
-      }
+      },
+      {
+        path: 'detail/:key',
+        component: DetailRoomComponent
+      },
     ]
   },
   {

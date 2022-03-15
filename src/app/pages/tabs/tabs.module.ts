@@ -1,8 +1,12 @@
+import { DetailRestaurantComponent } from './../restaurant-tab/detail-restaurant/detail-restaurant.component';
+import { DetailRoomComponent } from './../room-tab/detail-room/detail-room.component';
 import { UserPage } from './../authentication/user/user.page';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
 
 import { TabsPageRoutingModule } from './tabs-routing.module';
 
@@ -19,13 +23,16 @@ import { ComponentsModule } from '../../components/components.module';
     FormsModule,
     ReactiveFormsModule,
     TabsPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    RouterModule
   ],
   declarations: [
     TabsPage,
     RoomTabPage,
     RestaurantTabPage,
     LoginPage,
+    DetailRoomComponent,
+    DetailRestaurantComponent,
     UserPage
   ]
 })

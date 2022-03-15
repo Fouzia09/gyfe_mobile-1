@@ -1,7 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      GYFE
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Chambres
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -19,6 +26,7 @@
         <ion-button>
           <ion-icon name="heart"></ion-icon>
         </ion-button>
+        <ion-button  [routerLink]="['../tabs/detail', room.id]">Voir plus</ion-button>
       </div>
     </ion-card-content>
   </ion-card>

@@ -1,3 +1,74 @@
-<p>
-  user works!
-</p>
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Retour" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Retour" defaultHref="/tabs/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Inscription
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [hidden]="submitted">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <ion-item lines="full">
+        <ion-label position="floating">Username</ion-label>
+        <ion-input type="text" required [formControl]="username" required></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Nom Complet</ion-label>
+        <ion-input type="text" [formControl]="name" required></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" formControlName="email"  required></ion-input>
+        <div [hidden]="email.valid || email.pristine" style="margin-top: 10px;">
+          <small *ngIf="email.errors?.required" class="alert alert-danger">Email is required</small>
+          <small *ngIf="email.errors?.pattern" class="alert alert-danger">Example: toto@gmail.com</small>
+        </div>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Role</ion-label>
+        <ion-select name="roles" class="form-control" placeholder="Role" [formControl]="roles">
+          <!-- <option value="" disabled selected></option> -->
+          <ion-select-option value="ROLE_CHEF">Restaurateur</ion-select-option>
+          <ion-select-option value="ROLE_HOTELIER">Hôtelier</ion-select-option>
+          <ion-select-option value="ROLE_ADMIN">Admin</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" [formControl]="plainPassword" required></ion-input>
+        <div [hidden]="plainPassword.valid || plainPassword.pristine" style="margin-top: 8px;">
+          <small *ngIf="plainPassword.errors?.required" class="alert alert-danger">Password is required</small>
+          <small *ngIf="plainPassword.errors?.pattern" class="alert alert-danger">Example: Password123456@.</small>
+        </div>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" [disabled]="!userForm.valid" expand="block">Valider l'inscription</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+    <!-- <div *ngIf="clickSubmit">
+      <span *ngIf="password.status != 'valid' || email.status != 'valid'" [ngClass]="{'bad': 'message.error'}"> {{ message }}</span>
+    </div> -->
+  </div>
+  
+</ion-content>

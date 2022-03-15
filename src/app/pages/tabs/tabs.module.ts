@@ -14,6 +14,7 @@ import { TabsPage } from './tabs.page';
 import { RoomTabPage } from '../room-tab/room-tab.page';
 import { RestaurantTabPage } from '../restaurant-tab/restaurant-tab.page';
 import { LoginPage } from '../authentication/login/login.page';
+
 import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({

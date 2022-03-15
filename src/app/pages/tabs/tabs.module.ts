@@ -1,3 +1,5 @@
+import { DetailRestaurantComponent } from './../restaurant-tab/detail-restaurant/detail-restaurant.component';
+import { DetailRoomComponent } from './../room-tab/detail-room/detail-room.component';
 import { UserPage } from './../authentication/user/user.page';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
@@ -26,6 +28,8 @@ import { ComponentsModule } from '../../components/components.module';
     RoomTabPage,
     RestaurantTabPage,
     LoginPage,
+    DetailRoomComponent,
+    DetailRestaurantComponent,
     UserPage
   ]
 })

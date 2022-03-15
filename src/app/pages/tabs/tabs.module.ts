@@ -1,3 +1,4 @@
+import { UserPage } from './../authentication/user/user.page';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -23,7 +24,8 @@ import { ComponentsModule } from '../../components/components.module';
     TabsPage,
     RoomTabPage,
     RestaurantTabPage,
-    LoginPage
+    LoginPage,
+    UserPage
   ]
 })
 export class TabsPageModule {}

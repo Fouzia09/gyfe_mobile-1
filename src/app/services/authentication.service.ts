@@ -1,3 +1,5 @@
+import { UserToken } from './../interfaces/user';
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -11,7 +13,10 @@ export class AuthenticationService {
 
   private tokenName = 'token';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    ) { }
 
   public logOn(identifiant: any): any{
     return this.http.post(API_ROUTE.logon, identifiant);
@@ -21,11 +26,13 @@ export class AuthenticationService {
     return localStorage.getItem(this.tokenName);
   }
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
   seTtoken(data: Object){
     //@ts-ignore
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     data.hasOwnProperty('token') ? localStorage.setItem(this.tokenName,data.token) : this.logout();
+  }
+
+  setInLocalStorage(key: string, value: any): void {
+    localStorage.setItem(key, value);
   }
 
   getUsers(): Observable<User[]>{
@@ -63,5 +70,50 @@ export class AuthenticationService {
 
   resetPassword(body: any, email: string): Observable<any> {
     return this.http.post<any>(`${API_ROUTE.users}/resetPassword/${email}`, body);
+  }
+
+  logout(){
+    localStorage.clear();
+    //déconnection
+    this.router.navigate(['/authentication/login']);
+  }
+
+  isLogged(){
+    return this.getToken() !== null;
+  }
+
+  private tokenDecoded(): UserToken | boolean {
+    const token = this.getToken();
+    if (token) {
+      const decodedToken = atob(token.split('.')[1]);
+      const decodedTokenJsonFormat = JSON.parse(decodedToken);
+      return decodedTokenJsonFormat;
+    } else {
+      return false;
+    }
+  }
+
+  public userLoggedUsername(): string  {
+    const token = this.tokenDecoded() as UserToken;
+    const username = token.username;
+    return username;
+  }
+
+  public userLoggedRoles(): string[] {
+    const token = this.tokenDecoded() as UserToken;
+    const roles = token.roles;
+    return roles;
+  }
+
+  public tokenExpiration(): number {
+    const token = this.tokenDecoded() as UserToken;
+    const exp = token.exp;
+    return exp;
+  }
+
+  public userLoggedEmail(): string {
+    const token = this.tokenDecoded() as UserToken;
+    const email = token.email;
+    return email;
   }
 }

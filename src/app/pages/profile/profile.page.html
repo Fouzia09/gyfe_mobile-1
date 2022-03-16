@@ -1,10 +1,22 @@
 <ion-header>
   <ion-toolbar>
+    <ion-icon name="person"></ion-icon>
     <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
+  <ion-card>
+    <!-- <img src="../../../assets/uploads/menu-img-02.jpg" alt="Image du plat"> -->
+    <ion-card-header>
+      <ion-card-title><span class="text-success font-weight-bold">Nom:</span> {{currentuser?.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <div class="card-body">
+      <h3 class="card-title"><span class="text-success font-weight-bold">Username:</span> {{username}}</h3>
+      <h3 class="card-title"><span class="text-success font-weight-bold">Email:</span> {{currentuser?.email}}</h3>
+    </div>
+    </ion-card-content>
+  </ion-card>
   <app-favorite></app-favorite>
 </ion-content>

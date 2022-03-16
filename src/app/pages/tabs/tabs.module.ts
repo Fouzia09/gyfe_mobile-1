@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FavoriteComponent } from 'src/app/components/favorite/favorite.component';
 
 
 import { TabsPageRoutingModule } from './tabs-routing.module';
@@ -34,7 +35,8 @@ import { ComponentsModule } from '../../components/components.module';
     LoginPage,
     DetailRoomComponent,
     DetailRestaurantComponent,
-    UserPage
+    UserPage,
+    FavoriteComponent
   ]
 })
 export class TabsPageModule {}

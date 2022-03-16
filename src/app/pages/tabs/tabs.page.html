@@ -11,7 +11,12 @@
       <ion-label>Restaurants</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="login">
+    <ion-tab-button *ngIf="!isLogged" tab="login">
+      <ion-icon name="person-circle-outline"></ion-icon>
+      <ion-label>Profil</ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button *ngIf="isLogged" tab="profile">
       <ion-icon name="person-circle-outline"></ion-icon>
       <ion-label>Profil</ion-label>
     </ion-tab-button>

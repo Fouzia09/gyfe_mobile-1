@@ -1,8 +1,8 @@
 <!-- <i *ngIf="!isFavorite" class="bi bi-heart text-danger" (click)="addFav(); isFavorite = !isFavorite;"></i> -->
 <!-- <i *ngIf="isFavorite" class="bi bi-heart-fill text-danger" (click)="removeFav(); isFavorite = !isFavorite;"></i> -->
 <ion-button *ngIf="!isFavorite" (click)="addFav(); isFavorite = !isFavorite;">
-  <ion-icon name="heart-dislike"></ion-icon>
+  <ion-icon name="heart"></ion-icon>
 </ion-button>
 <ion-button *ngIf="isFavorite" (click)="removeFav(); isFavorite = !isFavorite;">
-  <ion-icon name="heart"></ion-icon>
+  <ion-icon name="heart-dislike"></ion-icon>
 </ion-button>

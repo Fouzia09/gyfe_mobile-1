@@ -1,10 +1,12 @@
-<ion-card *ngFor="let data of data">
+<ion-card  *ngIf="data">
   <!-- <img src="../../../assets/uploads/menu-img-02.jpg" alt="Image du plat"> -->
   <ion-card-header>
     <ion-card-title>{{ data.name }}</ion-card-title>
   </ion-card-header>
   <ion-card-content>
-    <p>{{data.image1}}</p>
+    <div class="row col-md-5">
+      <img [src]="data.image1" class="img-thumbnail" alt="Detail image" width="100%">
+    </div>
     <div id="descriptif-room">
       <p>{{ data.descriptif }}</p>
       <p>{{ data.city }} {{ data.country }}</p>
@@ -18,3 +20,4 @@
     </div>
   </ion-card-content>
 </ion-card>
+

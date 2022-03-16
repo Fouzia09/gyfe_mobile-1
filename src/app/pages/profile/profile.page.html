@@ -1,7 +1,15 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-icon name="person"></ion-icon>
-    <ion-title>Profile</ion-title>
+    <ion-title>
+      GYFE
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Profile
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,12 +17,15 @@
   <ion-card>
     <!-- <img src="../../../assets/uploads/menu-img-02.jpg" alt="Image du plat"> -->
     <ion-card-header>
-      <ion-card-title><span class="text-success font-weight-bold">Nom:</span> {{currentuser?.name}}</ion-card-title>
+      <p class="avatar">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </p>
+      <ion-card-title><span class="text-success font-weight-bold">Nom:</span> {{currentuser.name}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
     <div class="card-body">
-      <h3 class="card-title"><span class="text-success font-weight-bold">Username:</span> {{username}}</h3>
-      <h3 class="card-title"><span class="text-success font-weight-bold">Email:</span> {{currentuser?.email}}</h3>
+      <ion-card-title><span class="text-success font-weight-bold">Username:</span> {{username}}</ion-card-title><br>
+      <ion-card-title><span class="text-success font-weight-bold">Email:</span> {{currentuser.email}}</ion-card-title>
     </div>
     </ion-card-content>
   </ion-card>

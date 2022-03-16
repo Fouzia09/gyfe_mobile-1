@@ -23,9 +23,7 @@
       <div id="descriptif-room">
         <p>{{ room.descriptif }}</p>
         <p>{{ room.city }} {{ room.country }}</p>
-        <ion-button>
-          <ion-icon name="heart"></ion-icon>
-        </ion-button>
+        <app-add-favorite></app-add-favorite>
         <ion-button  [routerLink]="['/tabs/rooms/detail', room.id]">Voir plus</ion-button>
       </div>
     </ion-card-content>

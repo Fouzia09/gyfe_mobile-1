@@ -19,7 +19,7 @@ export class DetailRestaurantComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id = +this.route.snapshot.url[1].path;
+    this.id = +this.route.snapshot.url[2].path;
     this.getRestaurant(this.id);
   }
 

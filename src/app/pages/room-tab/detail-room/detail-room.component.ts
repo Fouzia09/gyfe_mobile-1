@@ -16,7 +16,7 @@ export class DetailRoomComponent implements OnInit {
   constructor(private route: ActivatedRoute, private roomService: RoomService) { }
 
   ngOnInit(): void {
-    this.id = +this.route.snapshot.url[1].path;
+    this.id = +this.route.snapshot.url[2].path;
     this.getRoom(this.id);
 
   }

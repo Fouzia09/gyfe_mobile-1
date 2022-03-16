@@ -25,7 +25,11 @@ const routes: Routes = [
         component: LoginPage
       },
       {
-        path: 'detail/:key',
+        path: 'rooms/detail/:key',
+        component: DetailRoomComponent
+      },
+      {
+        path: 'restaurant/detail/:key',
         component: DetailRoomComponent
       },
       {

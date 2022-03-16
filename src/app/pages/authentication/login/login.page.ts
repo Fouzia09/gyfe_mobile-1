@@ -72,7 +72,7 @@ export class LoginPage {
   } */
 
   private goPageProfil(): void{
-    this.router.navigate(['/tabs/rooms']);
+    this.router.navigate(['/profile/profile']);
   }
 
 }

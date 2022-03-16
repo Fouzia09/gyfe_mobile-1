@@ -31,6 +31,7 @@ export class FavoriteComponent implements OnInit {
     userLoggedInfo = localStorage.getItem('userLoggedInfo') as string;
     userLoggedInfo = JSON.parse(userLoggedInfo) as UserOUT;
     this.favorites = userLoggedInfo.favorites as FavoriteOUT[];
+    console.log(this.favorites);
   }
 
   removeFav(favorite: FavoriteOUT): void {
@@ -58,4 +59,6 @@ export class FavoriteComponent implements OnInit {
         this.ngOnInit();
       });
   }
+
+
 }

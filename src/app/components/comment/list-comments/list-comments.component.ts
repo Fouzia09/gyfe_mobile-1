@@ -30,13 +30,12 @@ export class ListCommentsComponent implements OnInit {
     this.commentService.getComments(type, typeId).subscribe(
       (comments) => {
         this.comments = comments;
-        comments.forEach(comment => {
+        this.comments.forEach(comment => {
           this.showDeleteCommentBtn(comment);
         });
         this.loading = false;
       },
-      (error) => {
-        console.log(error);
+      () => {
         this.loading = false;
       });
   }

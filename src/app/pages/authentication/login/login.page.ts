@@ -47,19 +47,19 @@ export class LoginPage {
     this.isLoading = true;
 
     this.auth.logOn(body).subscribe(
-      (data: Object)=>{
+      data => {
         this.auth.seTtoken(data);
-        //this.setUserInLocalStorage();
+        this.setUserInLocalStorage();
         this.isLoading = false;
         this.goPageProfil();
       },
-      (error: any)=>{
+      () => {
         this.errorAuthentication = true;
       }
     );
   }
 
-  /* setUserInLocalStorage(): void {
+  setUserInLocalStorage(): void {
     this.userService.getUserByUsername(this.auth.userLoggedUsername()).subscribe(
       userLoggedInfo => {
         this.auth.setInLocalStorage('userLoggedInfo', JSON.stringify(userLoggedInfo));
@@ -69,7 +69,7 @@ export class LoginPage {
       error => {
         console.log(error);
       });
-  } */
+  }
 
   private goPageProfil(): void{
     this.router.navigate(['/tabs/profile']);

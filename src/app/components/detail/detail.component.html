@@ -4,20 +4,29 @@
     <ion-card-title>{{ data.name }}</ion-card-title>
   </ion-card-header>
   <ion-card-content>
-    <div class="row col-md-5">
-      <img [src]="data.image1" class="img-thumbnail" alt="Detail image" width="100%">
-    </div>
-    <div id="descriptif-room">
-      <p>{{ data.descriptif }}</p>
-      <p>{{ data.city }} {{ data.country }}</p>
-      <p class="card-text" *ngIf="page === 'room'"><span class="detail-color">Nombre de lits:</span> {{ data.nbBed }}</p>
-      <p class="card-text" *ngIf="page === 'room'"><span class="detail-color">Surface de la chambre:</span> {{ data.squarFeet }} m2</p>
-      <p class="card-text"  ><span class="detail-color">Prix:</span> {{ data.price }} €</p>
-      <p class="card-text" *ngIf="page === 'restaurant'">Nos fourchettes de prix varient entre {{ data.rangePrice1 }} € à {{ data.rangePrice2 }} €</p>
-      <p class="card-text" *ngIf="page === 'restaurant'"><span class="detail-color">Nom du plat:</span> {{ data.namePlat }} m2</p>
-      <p class="card-text" *ngIf="page === 'restaurant'"><span class="detail-color">Description du plat:</span> {{ data.descriptifPlat }}</p>
-      <ion-button >Réserver</ion-button>
-    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <img [src]="data.image1" class="img-thumbnail" alt="Detail image" width="100%">
+        </ion-col>
+        <ion-col size="12">
+          <p>{{ data.descriptif }}</p>
+          <p>{{ data.city }} {{ data.country }}</p>
+          <p class="card-text" *ngIf="page === 'room'"><span class="detail-color">Nombre de lits:</span> {{ data.nbBed }}</p>
+          <p class="card-text" *ngIf="page === 'room'"><span class="detail-color">Surface de la chambre:</span> {{ data.squarFeet }} m2</p>
+          <p class="card-text"  ><span class="detail-color">Prix:</span> {{ data.price }} €</p>
+          <p class="card-text" *ngIf="page === 'restaurant'">Nos fourchettes de prix varient entre {{ data.rangePrice1 }} € à {{ data.rangePrice2 }} €</p>
+          <p class="card-text" *ngIf="page === 'restaurant'"><span class="detail-color">Nom du plat:</span> {{ data.namePlat }} m2</p>
+          <p class="card-text" *ngIf="page === 'restaurant'"><span class="detail-color">Description du plat:</span> {{ data.descriptifPlat }}</p>
+        </ion-col>
+        <ion-col>
+          <ion-button >Réserver</ion-button>
+        </ion-col>
+        <ion-col class="text-right">
+          <app-add-favorite [item]="data" [itemUrl]="page+'_detail_'+data.id"></app-add-favorite>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-card-content>
 </ion-card>
 

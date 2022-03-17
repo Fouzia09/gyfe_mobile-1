@@ -20,12 +20,20 @@
       <ion-card-title>{{ room.name }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <div id="descriptif-room">
-        <p>{{ room.descriptif }}</p>
-        <p>{{ room.city }} {{ room.country }}</p>
-        <app-add-favorite></app-add-favorite>
-        <ion-button  [routerLink]="['/tabs/rooms/detail', room.id]">Voir plus</ion-button>
-      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <p>{{ room.descriptif }}</p>
+            <p>{{ room.city }} {{ room.country }}</p>
+          </ion-col>
+          <ion-col>
+            <ion-button [routerLink]="['/tabs/rooms/detail', room.id]">Voir plus</ion-button>
+          </ion-col>
+          <ion-col class="text-right">
+            <app-add-favorite [item]="room" [itemUrl]="'room_detail_'+room.id"></app-add-favorite>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 </ion-content>

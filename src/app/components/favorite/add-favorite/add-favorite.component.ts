@@ -33,7 +33,9 @@ export class AddFavoriteComponent implements OnInit {
       data => {
         if (data.status !== 404) {
           this.favorite = data;
+          console.log(this.favorite);
           const userFounded = this.favorite.users.find(user => user === this.user);
+          console.log(userFounded);
           this.isFavorite = userFounded != null;
         }
         else {

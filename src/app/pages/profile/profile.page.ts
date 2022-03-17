@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class ProfilePage implements OnInit {
 
     //@ts-ignore
-    currentuser: User;
+    currentuser: User | null;
 
     username!: string;
     roles!: string[];

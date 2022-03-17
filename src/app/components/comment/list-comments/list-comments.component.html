@@ -1,16 +1,21 @@
-
-
-<ion-list>
-  <ion-list-header>Commentaires</ion-list-header>
-  <app-add-comment></app-add-comment>
-  <ion-item *ngFor="let comment of comments">
-    <ion-avatar slot="start">
-      <ion-icon name="person-outline"></ion-icon>
-    </ion-avatar>
-    <ion-label>
-      <h2 class="d-inline m-r-5">{{ comment.author }}</h2>
-      <small>{{ comment.createdAt }}</small>
-      <p>{{ comment.content }}</p>
-    </ion-label>
-  </ion-item>
-</ion-list>
+<ion-row>
+  <ion-col col-12 offset-sm-3 *ngFor="let comment of comments">
+      <ion-item-sliding>
+          <!-- Item -->
+          <ion-item>
+            <ion-avatar slot="start">
+              <ion-icon name="person-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h2 class="d-inline m-r-5">{{ comment.author }}</h2>
+              <small>{{ comment.createdAt }}</small>
+              <p>{{ comment.content }}</p>
+            </ion-label>
+          </ion-item>
+          <!-- Options -->
+          <ion-item-options side="right">
+              <button ion-button color="danger">Supprimer</button>
+          </ion-item-options>
+      </ion-item-sliding> <!-- This includes the options-->
+  </ion-col>
+</ion-row>

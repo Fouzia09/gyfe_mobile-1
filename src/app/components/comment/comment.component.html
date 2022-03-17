@@ -1,3 +1,5 @@
-<p>
-  comment works!
-</p>
+<ion-list> <!-- Here I've added the ion-list -->
+    <ion-list-header>Commentaires</ion-list-header>
+    <app-add-comment [page]="page" [pageId]="pageId"></app-add-comment>
+    <app-list-comments [page]="page" [pageId]="pageId"></app-list-comments>
+</ion-list>

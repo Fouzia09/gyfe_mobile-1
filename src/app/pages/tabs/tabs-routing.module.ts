@@ -6,6 +6,7 @@ import { RestaurantTabPage } from '../restaurant-tab/restaurant-tab.page';
 import { LoginPage } from '../authentication/login/login.page';
 import { RoomTabPage } from '../room-tab/room-tab.page';
 import { DetailRoomComponent } from '../room-tab/detail-room/detail-room.component';
+import { DetailRestaurantComponent } from '../restaurant-tab/detail-restaurant/detail-restaurant.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,7 @@ const routes: Routes = [
       },
       {
         path: 'restaurant/detail/:key',
-        component: DetailRoomComponent
+        component: DetailRestaurantComponent
       },
       {
         path: 'user',

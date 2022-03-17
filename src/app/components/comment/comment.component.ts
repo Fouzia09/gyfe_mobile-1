@@ -13,6 +13,6 @@ export class CommentComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.pageId = +this.route.snapshot.url[1].path;
+    this.pageId = +this.route.snapshot.url[2].path;
   }
 }

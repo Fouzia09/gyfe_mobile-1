@@ -35,6 +35,7 @@ export class AddCommentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.userLoggedInfo);
     if (this.userLoggedInfo) { this.pseudo = this.userLoggedInfo.username; };
     this.hasPseudo = this.pseudo ? true : false;
     if (!this.hasPseudo) { this.pseudo = 'user_' + (Math.random() + 1).toString(36).substring(7); }
@@ -52,7 +53,7 @@ export class AddCommentComponent implements OnInit {
   onSubmit(form: FormGroup): void {
     if (form.valid) {
       const newComment: CommentIN = {
-        author: form.value.pseudo,
+        author: form.value.pseudoFb,
         content: form.value.content
       };
 

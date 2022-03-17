@@ -16,10 +16,10 @@ export class CommentService {
   }
 
   addComment(comment: CommentIN): Observable<CommentOUT> {
-    return this.http.post<CommentOUT>(`${API_ROUTE.comments}/comments`, comment);
+    return this.http.post<CommentOUT>(API_ROUTE.comments, comment);
   }
 
   delete(commentId: number): Observable<undefined> {
-    return this.http.delete<undefined>(`${API_ROUTE.comments}/comments/${commentId}`);
+    return this.http.delete<undefined>(`${API_ROUTE.comments}/${commentId}`);
   }
 }

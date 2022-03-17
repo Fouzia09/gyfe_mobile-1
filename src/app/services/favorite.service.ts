@@ -16,7 +16,7 @@ export class FavoriteService {
   }
 
   addFavorite(fav: NewFavorite): Observable<FavoriteOUT> {
-    return this.http.post<FavoriteOUT>(`${API_ROUTE.favorites}`, fav);
+    return this.http.post<FavoriteOUT>(API_ROUTE.favorites, fav);
   }
 
   updateFavorite(id: number, fav: UpdateFavorite): Observable<FavoriteOUT> {

@@ -82,17 +82,6 @@ export class AuthenticationService {
     return this.getToken() !== null;
   }
 
-  private tokenDecoded(): UserToken | boolean {
-    const token = this.getToken();
-    if (token) {
-      const decodedToken = atob(token.split('.')[1]);
-      const decodedTokenJsonFormat = JSON.parse(decodedToken);
-      return decodedTokenJsonFormat;
-    } else {
-      return false;
-    }
-  }
-
   public userLoggedUsername(): string  {
     const token = this.tokenDecoded() as UserToken;
     const username = token.username;
@@ -115,5 +104,16 @@ export class AuthenticationService {
     const token = this.tokenDecoded() as UserToken;
     const email = token.email;
     return email;
+  }
+
+  private tokenDecoded(): UserToken | boolean {
+    const token = this.getToken();
+    if (token) {
+      const decodedToken = atob(token.split('.')[1]);
+      const decodedTokenJsonFormat = JSON.parse(decodedToken);
+      return decodedTokenJsonFormat;
+    } else {
+      return false;
+    }
   }
 }

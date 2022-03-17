@@ -1,6 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
+      GYFE
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
       Restaurant
     </ion-title>
   </ion-toolbar>
@@ -16,9 +23,7 @@
       <div id="descriptif-room">
         <p>{{ restaurant.descriptif }}</p>
         <p>{{ restaurant.city }} {{ restaurant.country }}</p>
-        <ion-button>
-          <ion-icon name="heart"></ion-icon>
-        </ion-button>
+        <app-add-favorite></app-add-favorite>
         <ion-button  [routerLink]="['/tabs/restaurant/detail', restaurant.id]">Voir plus</ion-button>
       </div>
     </ion-card-content>

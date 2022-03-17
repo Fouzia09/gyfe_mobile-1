@@ -1,3 +1,4 @@
+import { ProfilePage } from './../profile/profile.page';
 import { UserPage } from './../authentication/user/user.page';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'user',
         component: UserPage
+      },
+      {
+        path: 'profile',
+        component: ProfilePage
       }
     ]
   },

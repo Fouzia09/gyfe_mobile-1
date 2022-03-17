@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../../services/authentication.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  constructor(
+    private auth: AuthenticationService,
+  ) {}
+
+  isLogged(){
+    this.auth.isLogged();
+  }
 
 }

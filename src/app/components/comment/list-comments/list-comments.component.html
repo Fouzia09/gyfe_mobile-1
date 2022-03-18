@@ -7,14 +7,14 @@
               <ion-icon name="person-outline"></ion-icon>
             </ion-avatar>
             <ion-label>
-              <h2 class="d-inline m-r-5">{{ comment.author }}</h2>
-              <small>{{ comment.createdAt }}</small>
-              <p>{{ comment.content }}</p>
+              <h2 class="d-inline m-r-5">{{ comment.author }}</h2>- 
+              <small>{{ comment.createdAt | date: 'dd/MM/yyyy, HH:mm:ss' }}</small>
+              <p><strong>{{ comment.content }}</strong></p>
             </ion-label>
           </ion-item>
           <!-- Options -->
-          <ion-item-options side="right">
-              <button ion-button color="danger">Supprimer</button>
+          <ion-item-options *ngIf="comment.canBeDeleted" side="end">
+              <button ion-button class="bg-danger" (click)="deleteComment(comment.id)">Supprimer</button>
           </ion-item-options>
       </ion-item-sliding> <!-- This includes the options-->
   </ion-col>

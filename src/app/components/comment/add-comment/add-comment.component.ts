@@ -50,6 +50,8 @@ export class AddCommentComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup): void {
+    console.log(form);
+    console.log(form.value);
     if (form.valid) {
       const newComment: CommentIN = {
         author: form.value.pseudoFb,

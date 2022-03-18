@@ -27,6 +27,7 @@ export class ListCommentsComponent implements OnInit {
 
   getComments(type: string, typeId: number): void {
     this.loading = true;
+    this.comments = [];
     this.commentService.getComments(type, typeId).subscribe(
       (comments) => {
         this.comments = comments;

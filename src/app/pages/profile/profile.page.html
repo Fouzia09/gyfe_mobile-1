@@ -23,11 +23,15 @@
       <ion-card-title><span class="text-success font-weight-bold">Nom:</span> {{currentuser?.name}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-    <div class="card-body">
-      <ion-card-title><span class="text-success font-weight-bold">Username:</span> {{username}}</ion-card-title><br>
-      <ion-card-title><span class="text-success font-weight-bold">Email:</span> {{currentuser?.email}}</ion-card-title>
-    </div>
+      <div class="card-body">
+        <ion-card-title><span class="text-success font-weight-bold">Username:</span> {{username}}</ion-card-title><br>
+        <ion-card-title><span class="text-success font-weight-bold">Email:</span> {{currentuser?.email}}
+        </ion-card-title>
+      </div>
     </ion-card-content>
   </ion-card>
- <!--  <app-favorite></app-favorite> -->
+<ion-content>
+  <app-favorite></app-favorite>
+</ion-content>
+
 </ion-content>
